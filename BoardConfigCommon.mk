@@ -42,6 +42,10 @@ SOONG_CONFIG_qtidisplay_composer_version := v3_4
 
 # Filesystem
 TARGET_FS_CONFIG_GEN += $(COMMON_PATH)/config.fs
+# The Qualcomm vendor AIDs, unless the ROM's Qualcomm common layer already defines them
+ifeq ($(filter device/qcom/common/config.fs,$(TARGET_FS_CONFIG_GEN)),)
+TARGET_FS_CONFIG_GEN += $(COMMON_PATH)/config_qcom.fs
+endif
 # All stock logical partitions are EROFS; userdata is f2fs
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
