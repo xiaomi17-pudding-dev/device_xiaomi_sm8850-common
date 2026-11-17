@@ -115,6 +115,10 @@ BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
 # Platform
 TARGET_BOARD_PLATFORM := canoe
 
+# Power: the device mode hook of the QTI power HAL (see power/), for power HALs built with
+# Android.mk; the LineageOS one takes it from the qtipower soong config (common.mk)
+TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
+
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/configs/props/system.prop
 TARGET_VENDOR_PROP += $(COMMON_PATH)/configs/props/vendor.prop
