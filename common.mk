@@ -85,6 +85,9 @@ PRODUCT_PACKAGES += \
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Platform: also needed by product configuration (e.g. a QCOM common product layer)
+TARGET_BOARD_PLATFORM := canoe
+
 # Product characteristics
 PRODUCT_CHARACTERISTICS := nosdcard
 
