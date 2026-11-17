@@ -11,7 +11,7 @@ soong_namespace {
 
 // Mount point of the modemfirmware partition
 mkdir {
-    name: "vendor_modem_firmware_mountpoint",
+    name: "vendor_modemfirmware_mountpoint",
     dir: "modem_firmware",
     vendor: true,
 }
