@@ -294,8 +294,12 @@ PRODUCT_PACKAGES += \
     qti_telephony_utils_prd.xml \
     telephony-ext
 
+# ROMs whose product layer already adds telephony-ext to the boot jars set
+# TARGET_ROM_PROVIDES_TELEPHONY_EXT_BOOT_JAR := true in the product makefile
+ifneq ($(TARGET_ROM_PROVIDES_TELEPHONY_EXT_BOOT_JAR),true)
 PRODUCT_BOOT_JARS += \
     telephony-ext
+endif
 
 # The stock IMS apps call android.telephony.TelephonyBaseUtilsStub.isMiuiRom()
 PRODUCT_PACKAGES += \
