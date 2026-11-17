@@ -9,8 +9,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-# Qualcomm common
-$(call inherit-product, hardware/qcom-caf/common/common.mk)
+# Qualcomm common (optional: ROMs with their own Qualcomm common layer do not ship it)
+$(call inherit-product-if-exists, hardware/qcom-caf/common/common.mk)
 
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \

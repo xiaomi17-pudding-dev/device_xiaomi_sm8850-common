@@ -165,7 +165,7 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 # VINTF
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/configs/vintf/manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
+    $(wildcard hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml) \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
     $(COMMON_PATH)/configs/vintf/device_framework_matrix.xml
 
