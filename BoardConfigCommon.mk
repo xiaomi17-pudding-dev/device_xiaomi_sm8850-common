@@ -37,6 +37,8 @@ TARGET_NO_BOOTLOADER := true
 
 # Display
 TARGET_USES_VULKAN := true
+# The stock composer and its interfaces are composer3 V4 (the source display HAL follows it)
+SOONG_CONFIG_qtidisplay_composer_version := v3_4
 
 # Filesystem
 TARGET_FS_CONFIG_GEN += $(COMMON_PATH)/configs/fs/config.fs
