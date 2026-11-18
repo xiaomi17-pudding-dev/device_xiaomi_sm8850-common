@@ -22,7 +22,6 @@ namespace_imports = [
     'hardware/qcom-caf/sm8850',
     'hardware/qcom-caf/wlan',
     'hardware/xiaomi',
-    'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/dataservices',
 ]
 
@@ -41,6 +40,12 @@ lib_fixups: lib_fixups_user_type = {
 
 
 blob_fixups: blob_fixups_user_type = {
+    # The stock fm interface libraries are installed as *_stock.so: some ROMs build libraries with
+    # the same names from source
+    'vendor/bin/hw/android.hardware.bluetooth@aidl-service-qti': blob_fixup()
+        .replace_needed('vendor.qti.hardware.fm-V1-ndk.so', 'vendor.qti.hardware.fm-V1-ndk_stock.so'),
+    'vendor/lib64/libbt-hidlclient.so': blob_fixup()
+        .replace_needed('vendor.qti.hardware.fm@1.0.so', 'vendor.qti.hardware.fm@1.0_stock.so'),
     # Stock blobs link older versions of stable AIDL interfaces than LineageOS
     # builds; point them at the newest frozen version instead of shipping both.
     'vendor/lib64/libqti-perfd.so': blob_fixup()
